@@ -2,9 +2,8 @@ import { Text, ImageBackground, StyleSheet, TouchableOpacity, TextInput, Image }
 import { H1, View, H2 } from '../../components/Themed';
 import AppContainer from '../../components/layouts/AppContainer';
 import React from 'react';
-import navigation from '../../navigation';
 
-export default function LoginScreen({ navigation }:any) {
+export default function LoginWithEmailScreen() {
   return (
     <AppContainer >
       <View style={styles.containerFull}>
@@ -22,15 +21,26 @@ export default function LoginScreen({ navigation }:any) {
         </ImageBackground>
         <View style={styles.container}>
           <H2 style={styles.title2}>Login with phone number</H2>
-          <Text style={styles.title3}>We will send you an OTP on this number</Text>
+          <Text style={styles.title3}>Please add your login details below</Text>
+
+          <Text style={[styles.title3, styles.mt1]}>Email</Text>
           <TextInput
             style={styles.input}
             onChangeText={() => { }}
-            placeholder="000 000 0000"
-            keyboardType="numeric"
+            placeholder="Enter Your Email"
+            keyboardType="email-address"
           />
+
+          <Text style={[styles.title3, styles.mt1]}>Password</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={() => { }}
+            placeholder="Your Password"
+            keyboardType="visible-password"
+          />
+
           <TouchableOpacity onPress={() => { }} style={[styles.fullBtn, styles.mt1]}>
-            <Text style={[styles.fullBtnText]}>Get OTP</Text>
+            <Text style={[styles.fullBtnText]}>Login</Text>
           </TouchableOpacity>
 
           <Text style={[styles.m2, styles.title3, { textAlign: 'center' }]}>Or continue with</Text>
@@ -44,11 +54,9 @@ export default function LoginScreen({ navigation }:any) {
             <View style={[styles.flexCenter, styles.border1, {width:110}]}>
               <Image source={require("../../assets/images/login-bg/facebook.png")} />
             </View>
-            <TouchableOpacity style={[styles.flexCenter, styles.border1, {width:110}]} 
-                            onPress={()=> navigation.navigate('loginWithEmail')}
-            >
+            <View style={[styles.flexCenter, styles.border1, {width:110}]}>
               <Image source={require("../../assets/images/login-bg/email.png")} />
-            </TouchableOpacity>
+            </View>
           </View>
         </View>
       </View>

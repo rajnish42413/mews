@@ -21,6 +21,7 @@ import LinkingConfiguration from './LinkingConfiguration';
 
 //auth screen
 import LoginScreen from '../screens/auth/login';
+import LoginWithEmailScreen from '../screens/auth/loginWithEmail';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -42,6 +43,7 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Root" component={LoginScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="loginWithEmail" component={LoginWithEmailScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Bottom" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
