@@ -1,10 +1,4 @@
-/**
- * Learn more about Light and Dark modes:
- * https://docs.expo.io/guides/color-schemes/
- */
-
-import { Text as DefaultText, View as DefaultView } from 'react-native';
-
+import { Text as DefaultText, View as DefaultView, SafeAreaView as DefaultSaveAreaView } from 'react-native';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 
@@ -29,6 +23,8 @@ type ThemeProps = {
 
 export type TextProps = ThemeProps & DefaultText['props'];
 export type ViewProps = ThemeProps & DefaultView['props'];
+export type SaveAreaViewProps = ThemeProps & DefaultSaveAreaView['props'];
+
 
 export function Text(props: TextProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
@@ -43,3 +39,22 @@ export function View(props: ViewProps) {
 
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
 }
+
+export function SafeAreaView(props: SaveAreaViewProps) {
+  const { style, lightColor, darkColor, ...otherProps } = props;
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
+
+  return <DefaultSaveAreaView style={[{ backgroundColor }, style]} {...otherProps} />;
+}
+
+export function H1(props:TextProps){
+  const { style, ...otherProps } = props;
+  return <DefaultText style={[{color:Colors.light.textWhite}, style]} {...otherProps} />;
+}
+
+export function H2(props:TextProps){
+  const { style, ...otherProps } = props;
+  return <DefaultText style={[{color:Colors.light.text}, style]} {...otherProps} />;
+}
+
+
