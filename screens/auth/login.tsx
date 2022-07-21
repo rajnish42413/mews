@@ -4,7 +4,7 @@ import AppContainer from '../../components/layouts/AppContainer';
 import React from 'react';
 import navigation from '../../navigation';
 
-export default function LoginScreen({ navigation }:any) {
+export default function LoginScreen({ navigation }: any) {
   return (
     <AppContainer >
       <View style={styles.containerFull}>
@@ -29,23 +29,23 @@ export default function LoginScreen({ navigation }:any) {
             placeholder="000 000 0000"
             keyboardType="numeric"
           />
-          <TouchableOpacity onPress={() => { }} style={[styles.fullBtn, styles.mt1]}>
+          <TouchableOpacity onPress={() => { navigation.navigate("otpVerification") }} style={[styles.fullBtn, styles.mt1]}>
             <Text style={[styles.fullBtnText]}>Get OTP</Text>
           </TouchableOpacity>
 
           <Text style={[styles.m2, styles.title3, { textAlign: 'center' }]}>Or continue with</Text>
           <View style={[{
             flexDirection: "row",
-            justifyContent:'space-between',
+            justifyContent: 'space-between',
           }, styles.m2]}>
-            <View style={[styles.flexCenter, styles.border1, {width:110}]}>
+            <View style={[styles.flexCenter, styles.border1, { width: 110 }]}>
               <Image source={require("../../assets/images/login-bg/google.png")} />
             </View>
-            <View style={[styles.flexCenter, styles.border1, {width:110}]}>
+            <View style={[styles.flexCenter, styles.border1, { width: 110 }]}>
               <Image source={require("../../assets/images/login-bg/facebook.png")} />
             </View>
-            <TouchableOpacity style={[styles.flexCenter, styles.border1, {width:110}]} 
-                            onPress={()=> navigation.navigate('loginWithEmail')}
+            <TouchableOpacity style={[styles.flexCenter, styles.border1, { width: 110 }]}
+              onPress={() => navigation.navigate('loginWithEmail')}
             >
               <Image source={require("../../assets/images/login-bg/email.png")} />
             </TouchableOpacity>
@@ -128,14 +128,14 @@ const styles = StyleSheet.create({
   m2: {
     marginVertical: 20
   },
-  flexCenter:{
-    alignItems:'center', 
-    justifyContent:'center',
+  flexCenter: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  border1:{
-    borderWidth:1,
-    borderColor:'#eeeeee',
-    padding:15,
-    borderRadius:4
+  border1: {
+    borderWidth: 1,
+    borderColor: '#eeeeee',
+    padding: 15,
+    borderRadius: 4
   }
 });

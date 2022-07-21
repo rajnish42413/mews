@@ -22,6 +22,8 @@ import LinkingConfiguration from './LinkingConfiguration';
 //auth screen
 import LoginScreen from '../screens/auth/login';
 import LoginWithEmailScreen from '../screens/auth/loginWithEmail';
+import OtpVerification from '../screens/auth/otpVerification';
+import Topics from '../screens/onboard/topics';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -44,6 +46,17 @@ function RootNavigator() {
     <Stack.Navigator>
       <Stack.Screen name="Root" component={LoginScreen} options={{ headerShown: false }} />
       <Stack.Screen name="loginWithEmail" component={LoginWithEmailScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="otpVerification" component={OtpVerification} options={{
+        headerShown: true, title: "OTP Verification",
+        headerShadowVisible: false,
+        headerBackTitleVisible: false,
+      }} />
+      <Stack.Screen name="welcome" component={Topics} options={{
+        headerShown: true, title: "Welcome",
+        headerShadowVisible: false,
+        headerBackTitleVisible: false,
+      }} />
+
       <Stack.Screen name="Bottom" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
